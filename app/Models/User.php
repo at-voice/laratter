@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -46,6 +46,13 @@ class User extends Authenticatable
   public function userTweets()
   {
     return $this->hasMany(Tweet::class);
+  }
+
+
+  // 🔽 追加
+  public function tweets()
+  {
+    return $this->belongsToMany(Tweet::class)->withTimestamps();
   }
 
 }

@@ -27,6 +27,13 @@ class Tweet extends Model
   }
   // 子のモデルに belongsTo() を設定することで親のモデルを指定することができる．
 
+  // 🔽 追加
+  public function users()
+  {
+    return $this->belongsToMany(User::class)->withTimestamps();
+  }
+
+
 }
 
 // $guarded:アプリケーション側から変更できないカラム
